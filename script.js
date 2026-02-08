@@ -1,4 +1,4 @@
-const message = "Yes! I'll be your valentine. You are my world, and I can't imagine life without those sleepy morning eyes of yours. You're my favorite view.";
+const message = "Yes!!!!!!!!!!   Happy birthday to my dear littile cute motii Didiiiiii.";
 let i = 0;
 let isOpened = false;
 
@@ -44,4 +44,5 @@ function createHeart() {
     });
 
     anim.onfinish = () => heart.remove();
+
 }
