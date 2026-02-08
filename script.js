@@ -1,4 +1,4 @@
-const message = "Yes!!!!!!!!!!   Happy birthday to my dear littile cute motii Didiiiiii.";
+const message = "Yes!!!!!!!!!!   Happy birthday to my dear littile cute motii Didiiiiii..";
 let i = 0;
 let isOpened = false;
 
@@ -46,3 +46,4 @@ function createHeart() {
     anim.onfinish = () => heart.remove();
 
 }
+
