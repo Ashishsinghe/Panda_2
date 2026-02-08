@@ -1,0 +1,119 @@
+:root {
+    --env-color: #ff4d6d;
+    --env-dark: #c9184a;
+    --env-light: #ff758f;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #ffafbd, #ffc3a0);
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.hint {
+    position: absolute;
+    top: 15%;
+    color: white;
+    font-size: 1.2rem;
+    animation: bounce 2s infinite;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+.container {
+    position: relative;
+    width: 340px;
+    height: 220px;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+/* Wings */
+.wing {
+    position: absolute;
+    width: 200px;
+    top: 20px;
+    z-index: 5;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+}
+
+.left-wing { right: 100%; transform-origin: right center; }
+.right-wing { left: 100%; transform-origin: left center; }
+
+.container.open .left-wing { animation: flapL 0.4s ease-in-out infinite alternate; }
+.container.open .right-wing { animation: flapR 0.4s ease-in-out infinite alternate; }
+
+@keyframes flapL { from { transform: rotateY(0deg); } to { transform: rotateY(60deg); } }
+@keyframes flapR { from { transform: rotateY(0deg); } to { transform: rotateY(-60deg); } }
+
+/* Envelope */
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--env-color);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+.flap {
+    position: absolute;
+    top: 0; width: 0; height: 0;
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-top: 130px solid var(--env-dark);
+    transform-origin: top;
+    transition: transform 0.6s ease;
+    z-index: 40; /* Flap is at layer 40 */
+}
+
+.container.open .flap { transform: rotateX(180deg); }
+
+.pocket {
+    position: absolute;
+    bottom: 0; width: 0; height: 0;
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-bottom: 110px solid var(--env-light);
+    z-index: 30;
+}
+
+/* Fixed Card - Stacking Fix */
+.card {
+    position: absolute;
+    width: 300px;
+    height: 280px;
+    left: 20px;
+    bottom: 10px;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 1s ease-out, z-index 0.6s;
+    z-index: 20; /* Initially hidden inside */
+    border-radius: 5px;
+}
+
+.container.open .card {
+    transform: translateY(-230px); /* Lift higher to clear flap base */
+    z-index: 50; /* Jumps in front of the flap */
+}
+
+.card-content {
+    border: 2px solid #f9d5e5;
+    height: 100%;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    color: #333;
+}
+
+#typewriter { font-size: 1.1rem; line-height: 1.4; margin-top: 10px; }
+.heart-icon { font-size: 2rem; margin-top: 5px; }

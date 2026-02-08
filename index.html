@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Flying Valentine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="canvas">
+        <div class="hint" id="clickHint">Click to Open</div>
+
+        <div class="container" id="valentineContainer" onclick="openSurprise()">
+            
+            <svg class="wing left-wing" viewBox="0 0 200 200">
+                <path d="M200,100 C160,40 80,40 50,70 C20,100 30,130 50,140 C30,150 20,180 60,190 C90,200 120,180 140,160 C140,180 170,200 190,170 C200,150 200,120 200,100 Z" fill="white" stroke="#fce4ec" stroke-width="2"/>
+            </svg>
+
+            <svg class="wing right-wing" viewBox="0 0 200 200">
+                <path d="M0,100 C40,40 120,40 150,70 C180,100 170,130 150,140 C170,150 180,180 140,190 C110,200 80,180 60,160 C60,180 30,200 10,170 C0,150 0,120 0,100 Z" fill="white" stroke="#fce4ec" stroke-width="2"/>
+            </svg>
+
+            <div class="envelope">
+                <div class="flap"></div>
+                <div class="pocket"></div>
+                
+                <div class="card" id="letterCard">
+                    <div class="card-content">
+                        <h3>Dearest,</h3>
+                        <div id="typewriter"></div>
+                        <div class="heart-icon">❤️</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
